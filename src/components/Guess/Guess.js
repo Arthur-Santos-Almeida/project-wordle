@@ -12,11 +12,9 @@ function Guess({ answer, word }) {
   return (
     <p className="guess">
       {range(5).map((index) => {
-        //console.log(word ? checkGuess(word, answer)[index].status : '');
+        const letterStatusArray = checkGuess(word, answer);
 
-        const guessStatusClass = word
-          ? checkGuess(word, answer)[index].status
-          : null;
+        const guessStatusClass = word ? letterStatusArray[index].status : null;
 
         return (
           <span key={index} className={`cell ${guessStatusClass}`}>
